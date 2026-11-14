@@ -47,7 +47,7 @@
 
         if ($dadosFerramentas['estoque'] == '') {
             $erros['estoque'] = 'O campo estoque é obrigatório, tente novamente.';
-        } elseif ($dadosFerramentas['estoque'] > 20000) {
+        } elseif ($dadosFerramentas['estoque'] < 0 || $dadosFerramentas['estoque'] > 20000) {
             $erros['estoque'] = 'O campo quantidade deve ser preenchido com valores reais, tente novamente.';
         }
 
