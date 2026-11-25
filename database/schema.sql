@@ -2,6 +2,8 @@
 -- SEED: MAKERLAB
 -- ==========================================
 
+CREATE DATABASE IF NOT EXISTS makerLab;
+
 USE makerLab;
 
 SET NAMES utf8mb4;
