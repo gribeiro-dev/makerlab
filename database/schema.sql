@@ -147,5 +147,27 @@ FROM Ferramentas f INNER JOIN Bancadas b ON f.id_bancada = b.id_bancada;
 
 
 -- ==========================================
+
+-- 7. TABELA: RECOMENDACOES
+
+-- ==========================================
+
+  
+
+CREATE TABLE IF NOT EXISTS Recomendacoes (
+
+id_recomendacao INT AUTO_INCREMENT PRIMARY KEY,
+
+estrelas INT NOT NULL CHECK (estrelas BETWEEN 1 AND 5),
+
+texto TEXT NOT NULL,
+
+autor VARCHAR(100) NOT NULL
+
+);
+
+
+
+-- ==========================================
 -- FIM DO SCHEMA
 -- ==========================================

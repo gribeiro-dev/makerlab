@@ -230,5 +230,61 @@ VALUES
 
 
 -- ==========================================
+
+-- 7. RECOMENDACOES
+
+-- ==========================================
+
+
+
+INSERT INTO Recomendacoes
+
+(estrelas, texto, autor)
+
+VALUES
+
+(5,
+
+ 'O MakerLab é uma plataforma muito bem organizada e facilita bastante o desenvolvimento de projetos. Gostei da praticidade de encontrar as bancadas e ferramentas necessárias para colocar minhas ideias em prática.',
+
+ 'Ana Clara'),
+
+
+
+(5,
+
+ 'A proposta do MakerLab é muito interessante. Ter tudo organizado em um só lugar, desde as ferramentas até o gerenciamento dos projetos e reservas, torna a experiência muito mais prática.',
+
+ 'Lucas Almeida'),
+
+
+
+(5,
+
+ 'Achei incrível a possibilidade de desenvolver projetos e ter acesso a diferentes áreas de criação. O MakerLab incentiva muito a criatividade e torna mais fácil transformar ideias em algo real.',
+
+ 'Mariana Souza'),
+
+
+
+(4,
+
+ 'Uma plataforma muito útil para quem gosta de tecnologia, criação e inovação. A organização das ferramentas e das bancadas facilita bastante na hora de planejar e desenvolver um projeto.',
+
+ 'Pedro Henrique'),
+
+
+
+(5,
+
+ 'O MakerLab tem uma proposta excelente, principalmente para quem está começando a desenvolver projetos. A plataforma é intuitiva, organizada e incentiva as pessoas a aprenderem, experimentarem e criarem coisas novas.',
+
+ 'Carolina Martins');
+
+
+
+
+
+-- ==========================================
 -- FIM DA SEED
 -- ==========================================
