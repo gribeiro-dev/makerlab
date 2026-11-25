@@ -1,4 +1,3 @@
-
 -- ==========================================
 -- SEED: MAKERLAB
 -- ==========================================
@@ -15,16 +14,16 @@ SET NAMES utf8mb4;
 INSERT INTO Usuarios
 (nome_usuario, email, senha, instituicao, telefone, perfil)
 VALUES
-('João Silva', 'joao@email.com', '123456', 'IFSP', '11999990001', 'admin'),
-('Maria Oliveira', 'maria@email.com', '123456', 'USP', '11999990002', 'normal'),
-('Pedro Santos', 'pedro@email.com', '123456', 'UNICAMP', '11999990003', 'normal'),
-('Ana Costa', 'ana@email.com', '123456', 'IFSP', '11999990004', 'normal'),
-('Lucas Ferreira', 'lucas@email.com', '123456', 'SENAI', '11999990005', 'normal'),
-('Beatriz Lima', 'beatriz@email.com', '123456', 'UNESP', '11999990006', 'normal'),
-('Gabriel Souza', 'gabriel@email.com', '123456', 'USP', '11999990007', 'normal'),
-('Camila Rocha', 'camila@email.com', '123456', 'UFABC', '11999990008', 'admin'),
-('Mateus Alves', 'mateus@email.com', '123456', 'IFSP', '11999990009', 'normal'),
-('Juliana Mendes', 'juliana@email.com', '123456', 'FATEC', '11999990010', 'normal');
+('João Silva', 'joao@email.com', '$2y$10$6yHV4wHciFzpPxuX0gnidOfuBT28y3CTDJKIQUE650kBWnFi02Ws6', 'IFSP', '11999990001', 'admin'),
+('Maria Oliveira', 'maria@email.com', '$2y$10$gj0mPwHmdj7QXVmcr0M67epxHJ8tiTdik3rXz9iWXjuwW01GX89mS', 'USP', '11999990002', 'normal'),
+('Pedro Santos', 'pedro@email.com', '$2y$10$Iq8jOWeUvS8dNqYOhL/s7.PKCtlMkKXtklQ6AQCR4uzOUzv1tbrqe', 'UNICAMP', '11999990003', 'normal'),
+('Ana Costa', 'ana@email.com', '$2y$10$0wUBkIiSv1N2VmRYKpJsVOnLqfzC1sjPDd2sxbpjqqQ.sui4HoQGq', 'IFSP', '11999990004', 'normal'),
+('Lucas Ferreira', 'lucas@email.com', '$2y$10$9HJMMO/fUaHc57wW9pGpmOnQKYAxO6aNlqJeeUDT5IWXAx6s7wx1u', 'SENAI', '11999990005', 'normal'),
+('Beatriz Lima', 'beatriz@email.com', '$2y$10$sryi8YxXzIE4wwBzXrDiDumvQxh0B3t1Cwi9zGQ5kGXo1NOdd.tiK', 'UNESP', '11999990006', 'normal'),
+('Gabriel Souza', 'gabriel@email.com', '$2y$10$rhrT6q3c8Yb1n8hnJ9FJh.Qmf0QGc7qZ252gKpXduStwbeAthEu4e', 'USP', '11999990007', 'normal'),
+('Camila Rocha', 'camila@email.com', '$2y$10$VJI2H9FgOcNihYC1SHjioefwqWHfICiA8RKfbMB8yCiC980q0WNZa', 'UFABC', '11999990008', 'admin'),
+('Mateus Alves', 'mateus@email.com', '$2y$10$sMF.a9cqv9NiJAxnLClzxOxNue2MULX1HiCM2cfIBMiIYWWzmK.mG', 'IFSP', '11999990009', 'normal'),
+('Juliana Mendes', 'juliana@email.com', '$2y$10$fgopIoAOmmZgtnt5qaPbIe/RHZl7U60pTNJ6NDtcBasmu7FxModoq', 'FATEC', '11999990010', 'normal');
 
 
 -- ==========================================
