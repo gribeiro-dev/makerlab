@@ -35,6 +35,15 @@
         }
     }
 
+    $ehLink = null;
+    if(filter_var($bancadaSelecionada[0]['imagens_bancada'], FILTER_VALIDATE_URL) === false){
+        $ehLink = false;
+    }else{
+        $ehLink = true;
+    }
+
+
+
     
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
@@ -97,13 +106,14 @@
         }
 
         // -----------------------------------------------------
-
-        if ($dados['imagem'] === '') {
-            $erros['imagem'] = 'O campo de imagem é obrigatório.';
-        } elseif (filter_var($dados['imagem'], FILTER_VALIDATE_URL) === false) {
-            $erros['imagem'] = 'O campo de imagem precisa ser um link válido.';
-        } elseif (strlen($dados['imagem']) > 255) {
-            $erros['imagem'] = 'O link da imagem deve ter no máximo 255 caracteres.';
+        if($ehLink){
+            if ($dados['imagem'] === '') {
+                $erros['imagem'] = 'O campo de imagem é obrigatório.';
+            } elseif (filter_var($dados['imagem'], FILTER_VALIDATE_URL) === false) {
+                $erros['imagem'] = 'O campo de imagem precisa ser um link válido.';
+            } elseif (strlen($dados['imagem']) > 255) {
+                $erros['imagem'] = 'O link da imagem deve ter no máximo 255 caracteres.';
+            }
         }
 
         // -----------------------------------------------------
@@ -131,21 +141,36 @@
         }
 
         if ($erros === []) {
-            update($pdo, 'Bancadas', [
-                'nome_bancada'      => $dados['nomeBancada'],
-                'descricao_bancada' => $dados['descricao'],
-                'quantidade_bancada'=> $dados['quantidade'],
-                'primeira_vantagem' => $dados['primeiraVantagem'],
-                'segunda_vantagem'  => $dados['segundaVantagem'],
-                'imagens_bancada'   => $dados['imagem'],
-                'preco_bancada'     => $dados['preco'],
-                'status_bancada'    => $dados['status'],
-                'area_bancada'      => $dados['area']
-            ], "id_bancada = ?", [$_GET['id']]);
-            header('Location: dashboard.php');
-            exit;
+            if($ehLink){
+                update($pdo, 'Bancadas', [
+                    'nome_bancada'      => $dados['nomeBancada'],
+                    'descricao_bancada' => $dados['descricao'],
+                    'quantidade_bancada'=> $dados['quantidade'],
+                    'primeira_vantagem' => $dados['primeiraVantagem'],
+                    'segunda_vantagem'  => $dados['segundaVantagem'],
+                    'imagens_bancada'   => $dados['imagem'],
+                    'preco_bancada'     => $dados['preco'],
+                    'status_bancada'    => $dados['status'],
+                    'area_bancada'      => $dados['area']
+                    ], "id_bancada = ?", [$_GET['id']]);
+                }else{
+                    update($pdo, 'Bancadas', [
+                        'nome_bancada'      => $dados['nomeBancada'],
+                        'descricao_bancada' => $dados['descricao'],
+                        'quantidade_bancada'=> $dados['quantidade'],
+                        'primeira_vantagem' => $dados['primeiraVantagem'],
+                        'segunda_vantagem'  => $dados['segundaVantagem'],
+                        'preco_bancada'     => $dados['preco'],
+                        'status_bancada'    => $dados['status'],
+                        'area_bancada'      => $dados['area']
+                        ], "id_bancada = ?", [$_GET['id']]);
+                }
+                        
         }
-    }
+                    header('Location: dashboard.php');
+                    exit;
+        }
+    
         
 ?>
 
@@ -249,8 +274,11 @@
                         <label class="opcao" for="manutencao">Manutenção</label>
                     </div>
 
-                    <label class="rotulo" for="imagem">Cole o link da imagem</label>
-                    <input class="campo campo-imagem" type="text" name="imagem" id="imagem" value="<?= $bancadas['imagens_bancada'] ?>" required>
+                    <?php if ($ehLink == true):?>
+                        <label class="rotulo" for="imagem">Cole o link da imagem</label>
+                        <input class="campo campo-imagem" type="text" name="imagem" id="imagem" value="<?= $bancadas['imagens_bancada'] ?>" required>
+                    <?php endif;?>
+                    
 
                     <button class="botao-registrar" type="submit">Registrar</button>
                 </div>
