@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'email'        => $dados['email'],
             'instituicao'  => $dados['instituicao'],
             'telefone'     => $dados['telefone'],
-            'senha'        => $dados['senha'],
+            'senha'        => password_hash($dados['senha'], PASSWORD_DEFAULT),
         ]);
 
         header('Location: loginUsuario.php');

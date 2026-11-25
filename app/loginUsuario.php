@@ -34,7 +34,7 @@ break;
     }
 
 if ($usuarioEncontrado) {
-if ($usuarioEncontrado['senha'] == $senha) {
+if (password_verify($senha, $usuarioEncontrado['senha'])) {
             session_regenerate_id(true);
             $_SESSION['user'] = $usuarioEncontrado['nome_usuario'];
             $_SESSION['id'] = $usuarioEncontrado['id_usuario'];
