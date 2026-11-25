@@ -240,3 +240,70 @@ body {
     font-size: 20px;
     margin-right: 0;
 }
+
+/* ---------------- calendário ---------------- */
+
+.agenda {
+    width: 100%;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.agenda-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.agenda-topo h2 {
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.agenda-topo a {
+    margin-left: 20px;
+}
+
+.tabela-agenda {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+    font-family: 'Alexandria', Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+
+.tabela-agenda th {
+    padding: 8px;
+    background-color: #28286B;
+    color: #fff;
+}
+
+.tabela-agenda td {
+    height: 32px;
+    border: 1px solid #e7e4e4;
+}
+
+.livre {
+    color: #3A71C4;
+    cursor: pointer;
+}
+
+.livre:hover {
+    background-color: #e6eefa;
+}
+
+.ocupado {
+    background-color: #e7e4e4;
+    color: #928f8f;
+}
+
+.passado {
+    background-color: #f7f7f7;
+}
+
+.selecionado {
+    background-color: #3A71C4;
+    color: #fff;
+}
