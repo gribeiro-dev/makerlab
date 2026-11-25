@@ -260,15 +260,37 @@ body {
     font-size: 30px;
     font-weight: normal;
 }
+.navegacao-semana {
+    display: flex;
+    gap: 10px;
+}
 
-.agenda-topo a {
-    margin-left: 20px;
+.botao-semana {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    font-family: 'Alexandria', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #3866f5;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.botao-semana:hover {
+    background-color: #2954d4;
 }
 
 .tabela-agenda {
     width: 100%;
     min-width: 700px;
-    border-collapse: collapse;
+    border-collapse: separate;   /* necessário para o border-radius funcionar */
+    border-spacing: 0;
+    border: 1px solid #e7e4e4;
+    border-radius: 16px;
     font-family: 'Alexandria', Arial, sans-serif;
     font-size: 14px;
     text-align: center;
@@ -282,8 +304,23 @@ body {
 
 .tabela-agenda td {
     height: 32px;
-    border: 1px solid #e7e4e4;
+    border-right: 1px solid #e7e4e4;
+    border-bottom: 1px solid #e7e4e4;
 }
+
+.tabela-agenda tr td:last-child {
+    border-right: none;
+}
+
+.tabela-agenda tr:last-child td {
+    border-bottom: none;
+}
+
+/* arredonda as células dos cantos para acompanhar a borda da tabela */
+.tabela-agenda tr:first-child th:first-child { border-top-left-radius: 15px; }
+.tabela-agenda tr:first-child th:last-child  { border-top-right-radius: 15px; }
+.tabela-agenda tr:last-child th:first-child  { border-bottom-left-radius: 15px; }
+.tabela-agenda tr:last-child td:last-child   { border-bottom-right-radius: 15px; } 
 
 .livre {
     color: #3A71C4;

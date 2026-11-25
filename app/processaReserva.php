@@ -210,12 +210,16 @@ if (isset($userLogado)) {
             <div class="agenda" id="agenda">
                 <div class="agenda-topo">
                     <h2>Horários da semana</h2>
-                    <div>
+                    <div class="navegacao-semana">
                         <?php if ($semana > 0): ?>
-                            <a class="tagA" href="?id=<?= $bancada['id_bancada'] ?>&semana=<?= $semana - 1 ?>#agenda">&lt; Semana anterior</a>
+                            <a class="botao-semana" href="?id=<?= $bancada['id_bancada'] ?>&semana=<?= $semana - 1 ?>#agenda">
+                                <i class="bi bi-chevron-left"></i> Semana anterior
+                            </a>
                         <?php endif; ?>
                         <?php if ($semana < 8): ?>
-                            <a class="tagA" href="?id=<?= $bancada['id_bancada'] ?>&semana=<?= $semana + 1 ?>#agenda">Próxima semana &gt;</a>
+                            <a class="botao-semana" href="?id=<?= $bancada['id_bancada'] ?>&semana=<?= $semana + 1 ?>#agenda">
+                                Próxima semana <i class="bi bi-chevron-right"></i>
+                            </a>
                         <?php endif; ?>
                     </div>
                 </div>
