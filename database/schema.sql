@@ -1,236 +1,151 @@
 -- ==========================================
--- SEED: MAKERLAB
+-- BANCO DE DADOS: MAKERLAB
 -- ==========================================
 
 CREATE DATABASE IF NOT EXISTS makerLab;
 
 USE makerLab;
 
-SET NAMES utf8mb4;
-
 
 -- ==========================================
--- 1. USUARIOS
+-- 1. TABELA: USUARIOS
 -- ==========================================
 
-INSERT INTO Usuarios
-(nome_usuario, email, senha, instituicao, telefone, perfil)
-VALUES
-('João Silva', 'joao@email.com', '$2y$10$6yHV4wHciFzpPxuX0gnidOfuBT28y3CTDJKIQUE650kBWnFi02Ws6', 'IFSP', '11999990001', 'admin'),
-('Maria Oliveira', 'maria@email.com', '$2y$10$gj0mPwHmdj7QXVmcr0M67epxHJ8tiTdik3rXz9iWXjuwW01GX89mS', 'USP', '11999990002', 'normal'),
-('Pedro Santos', 'pedro@email.com', '$2y$10$Iq8jOWeUvS8dNqYOhL/s7.PKCtlMkKXtklQ6AQCR4uzOUzv1tbrqe', 'UNICAMP', '11999990003', 'normal'),
-('Ana Costa', 'ana@email.com', '$2y$10$0wUBkIiSv1N2VmRYKpJsVOnLqfzC1sjPDd2sxbpjqqQ.sui4HoQGq', 'IFSP', '11999990004', 'normal'),
-('Lucas Ferreira', 'lucas@email.com', '$2y$10$9HJMMO/fUaHc57wW9pGpmOnQKYAxO6aNlqJeeUDT5IWXAx6s7wx1u', 'SENAI', '11999990005', 'normal'),
-('Beatriz Lima', 'beatriz@email.com', '$2y$10$sryi8YxXzIE4wwBzXrDiDumvQxh0B3t1Cwi9zGQ5kGXo1NOdd.tiK', 'UNESP', '11999990006', 'normal'),
-('Gabriel Souza', 'gabriel@email.com', '$2y$10$rhrT6q3c8Yb1n8hnJ9FJh.Qmf0QGc7qZ252gKpXduStwbeAthEu4e', 'USP', '11999990007', 'normal'),
-('Camila Rocha', 'camila@email.com', '$2y$10$VJI2H9FgOcNihYC1SHjioefwqWHfICiA8RKfbMB8yCiC980q0WNZa', 'UFABC', '11999990008', 'admin'),
-('Mateus Alves', 'mateus@email.com', '$2y$10$sMF.a9cqv9NiJAxnLClzxOxNue2MULX1HiCM2cfIBMiIYWWzmK.mG', 'IFSP', '11999990009', 'normal'),
-('Juliana Mendes', 'juliana@email.com', '$2y$10$fgopIoAOmmZgtnt5qaPbIe/RHZl7U60pTNJ6NDtcBasmu7FxModoq', 'FATEC', '11999990010', 'normal');
-
-
--- ==========================================
--- 2. BANCADAS
--- ==========================================
-
-INSERT INTO Bancadas
-(nome_bancada, descricao_bancada, quantidade_bancada,
- primeira_vantagem, segunda_vantagem, imagens_bancada,
- preco_bancada, status_bancada, area_bancada)
-VALUES
-('Bancada de Eletrônica',
- 'Espaço para projetos eletrônicos e circuitos.',
- 6, 'Arduino e sensores', 'Ferros de solda',
- './img/bancadasPADRAO/eletronica.jpg', 25.00, 'disponivel', 'Eletrônica'),
-
-('Bancada de Impressão 3D',
- 'Espaço equipado para impressão 3D.',
- 4, 'Impressoras 3D', 'Filamentos variados',
- './img/bancadasPADRAO/impressao3d.jpg', 35.00, 'disponivel', 'Prototipagem'),
-
-('Bancada de Marcenaria',
- 'Espaço para trabalhos com madeira.',
- 8, 'Serras e lixadeiras', 'Bancada reforçada',
- './img/bancadasPADRAO/marcenaria.jpg', 30.00, 'disponivel', 'Marcenaria'),
-
-('Bancada de Robótica',
- 'Espaço para montagem e programação de robôs.',
- 6, 'Kits de robótica', 'Notebooks',
- './img/bancadasPADRAO/robotica.jpg', 40.00, 'manutencao', 'Robótica'),
-
-('Bancada de Prototipagem',
- 'Espaço para desenvolvimento de protótipos.',
- 5, 'Mesa ampla', 'Ferramentas manuais',
- './img/bancadasPADRAO/prototipagem.jpg', 28.00, 'disponivel', 'Prototipagem'),
-
-('Bancada de Corte a Laser',
- 'Espaço equipado para corte e gravação a laser.',
- 3, 'Cortadora a laser', 'Exaustão',
- './img/bancadasPADRAO/corte_laser.jpg', 45.00, 'disponivel', 'Corte e Usinagem'),
-
-('Bancada de Química e Materiais',
- 'Espaço para testes com resinas, tintas e polímeros.',
- 4, 'Capela de exaustão', 'Balanças de precisão',
- './img/bancadasPADRAO/quimica.jpg', 32.00, 'disponivel', 'Química'),
-
-('Bancada de IoT & Sensores',
- 'Espaço dedicado a automação residencial e redes sem fio.',
- 6, 'Módulos Wi-Fi', 'Sensores variados',
- './img/bancadasPADRAO/iot.jpg', 38.00, 'disponivel', 'Eletrônica');
-
-
--- ==========================================
--- 3. FERRAMENTAS
--- ==========================================
-
-INSERT INTO Ferramentas
-(nome_ferramenta, area, estoque, id_bancada)
-VALUES
-('Ferro de Solda', 'Eletrônica', 10, 1),
-('Multímetro Digital', 'Eletrônica', 8, 1),
-('Osciloscópio', 'Eletrônica', 3, 1),
-('Impressora 3D Ender 3', 'Prototipagem', 2, 2),
-('SLA Resin Printer', 'Prototipagem', 1, 2),
-('Serra Tico-Tico', 'Marcenaria', 5, 3),
-('Lixadeira Orbital', 'Marcenaria', 4, 3),
-('Tupia Manual', 'Marcenaria', 2, 3),
-('Arduino Uno', 'Robótica', 15, 4),
-('Kit Servomotores', 'Robótica', 10, 4),
-('Raspberry Pi 4', 'Robótica', 6, 4),
-('Chave de Fenda', 'Prototipagem', 20, 5),
-('Micro Retífica', 'Prototipagem', 6, 5),
-('Alicate de Corte', 'Eletrônica', 12, 1),
-('Cortadora Laser CO2', 'Corte e Usinagem', 1, 6),
-('Exaustor Industrial', 'Química', 2, 7),
-('Módulo ESP32 Wi-Fi/Bluetooth', 'Eletrônica', 18, 8);
-
-
-
--- ==========================================
--- 4. PROJETOS
--- ==========================================
-
-INSERT INTO Projetos
-(nome_projeto, descricao_projeto, imagem_projeto, id_criador)
-VALUES
-(
- 'Robô Seguidor de Linha',
- 'Construção de um robô autônomo capaz de seguir trajetos utilizando sensores e programação.', './img/projetosPADRAO/robo_seguidor.jpg',
- 1
-),
-(
- 'Impressão 3D de Miniaturas',
- 'Desenvolvimento de miniaturas personalizadas utilizando modelagem e impressão tridimensional.', './img/projetosPADRAO/miniaturas_3d.jpg',
- 2
-),
-(
- 'Circuito Eletrônico Inteligente',
- 'Criação de um circuito eletrônico utilizando Arduino, sensores e componentes eletrônicos.', './img/projetosPADRAO/circuito_inteligente.jpg',
- 3
-),
-(
- 'Móvel Sustentável',
- 'Construção de um pequeno móvel utilizando madeira reaproveitada e ferramentas de marcenaria.', './img/projetosPADRAO/movel_sustentavel.jpg',
- 4
-),
-(
- 'Estação Meteorológica',
- 'Desenvolvimento de uma estação meteorológica para monitoramento de temperatura e umidade.', './img/projetosPADRAO/estacao_meteorologica.jpg',
- 5
-),
-(
- 'Sistema de Corte a Laser',
- 'Criação de peças personalizadas utilizando equipamentos de corte e gravação a laser.', './img/projetosPADRAO/sistema_corte_laser.jpg',
- 6
-),
-(
- 'Experimentos com Polímeros',
- 'Estudo e desenvolvimento de materiais utilizando resinas, tintas e diferentes polímeros.', './img/projetosPADRAO/experimentos_polimeros.jpg',
- 7
-),
-(
- 'Automação Residencial IoT',
- 'Desenvolvimento de um sistema de automação residencial utilizando módulos Wi-Fi e sensores.', './img/projetosPADRAO/automacao_iot.jpg',
- 8
-),
-(
- 'Braço Robótico Automatizado',
- 'Montagem e programação de um braço robótico utilizando motores e componentes eletrônicos.', './img/projetosPADRAO/braco_robotico.jpg',
- 9
-),
-(
- 'Mini Protótipo Mecânico',
- 'Construção de um protótipo mecânico para testar soluções de engenharia e mecanismos.', './img/projetosPADRAO/prototipo_mecanico.jpg',
- 10
+CREATE TABLE IF NOT EXISTS Usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome_usuario VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    instituicao VARCHAR(100),
+    telefone VARCHAR(20),
+    perfil ENUM('normal', 'admin') NOT NULL DEFAULT 'normal',
+    imagens_usuario VARCHAR(255) NOT NULL DEFAULT 'padrao',
+    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 
-
 -- ==========================================
--- 5. PROJETOS_USUARIOS
+-- 2. TABELA: BANCADAS
 -- ==========================================
 
-INSERT INTO Projetos_Usuarios
-(id_projeto, id_usuario)
-VALUES
-(1, 1),
-(1, 2),
-
-(2, 3),
-
-(3, 1),
-(3, 4),
-
-(4, 5),
-
-(5, 2),
-
-(6, 6),
-(6, 7),
-
-(7, 8),
-
-(8, 9),
-(8, 10),
-
-(9, 3),
-(9, 6),
-
-(10, 4);
+CREATE TABLE IF NOT EXISTS Bancadas (
+    id_bancada INT AUTO_INCREMENT PRIMARY KEY,
+    nome_bancada VARCHAR(100) NOT NULL,
+    descricao_bancada TEXT,
+    quantidade_bancada INT NOT NULL,
+    primeira_vantagem VARCHAR(30),
+    segunda_vantagem VARCHAR(30),
+    imagens_bancada VARCHAR(255),
+    preco_bancada DECIMAL(10,2) NOT NULL,
+    status_bancada ENUM(
+        'disponivel',
+        'manutencao',
+        'indisponivel'
+    ) NOT NULL DEFAULT 'disponivel',
+    area_bancada VARCHAR(50)
+);
 
 
 -- ==========================================
--- 6. RESERVAS
+-- 3. TABELA: FERRAMENTAS
 -- ==========================================
 
-INSERT INTO Reservas
-(data_reserva, horas_reservadas, preco_total,
- id_usuario, id_bancada, id_projeto)
-VALUES
-('2026-11-02 09:00:00', 2, 50.00, 1, 1, 1),
+CREATE TABLE IF NOT EXISTS Ferramentas (
+    id_ferramenta INT AUTO_INCREMENT PRIMARY KEY,
+    nome_ferramenta VARCHAR(100) NOT NULL,
+    area VARCHAR(50),
+    status_ferramenta ENUM(
+        'disponivel',
+        'manutencao',
+        'indisponivel'
+    ) NOT NULL DEFAULT 'disponivel',
+    estoque INT NOT NULL DEFAULT 0,
+    id_bancada INT,
 
-('2026-11-03 14:00:00', 3, 105.00, 2, 2, 2),
-
-('2026-11-04 10:00:00', 2, 60.00, 3, 3, 3),
-
-('2026-11-05 13:00:00', 4, 112.00, 4, 5, 4),
-
-('2026-11-06 08:00:00', 2, 50.00, 5, 1, 5),
-
-('2026-11-07 11:00:00', 3, 135.00, 6, 6, 6),
-
-('2026-11-08 15:00:00', 5, 160.00, 7, 7, 6),
-
-('2026-11-09 09:30:00', 4, 152.00, 8, 8, 7),
-
-('2026-11-10 14:00:00', 2, 70.00, 9, 2, 8),
-
-('2026-11-11 10:00:00', 3, 90.00, 10, 3, 8),
-
-('2026-11-12 16:00:00', 2, 90.00, 3, 6, 9),
-
-('2026-11-13 08:30:00', 1, 28.00, 4, 5, 10);
+    CONSTRAINT fk_bancada
+        FOREIGN KEY (id_bancada)
+        REFERENCES Bancadas(id_bancada)
+);
 
 
 -- ==========================================
--- FIM DA SEED
+-- 4. TABELA: PROJETOS
+-- ==========================================
+
+CREATE TABLE IF NOT EXISTS Projetos (
+    id_projeto INT AUTO_INCREMENT PRIMARY KEY,
+    nome_projeto VARCHAR(100) NOT NULL,
+    descricao_projeto TEXT,
+    imagem_projeto VARCHAR(255),
+    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    id_criador INT NOT NULL,
+
+    CONSTRAINT fk_projeto_criador
+        FOREIGN KEY (id_criador)
+        REFERENCES Usuarios(id_usuario)
+);
+
+
+-- ==========================================
+-- 5. TABELA: PROJETOS_USUARIOS
+-- ==========================================
+
+CREATE TABLE IF NOT EXISTS Projetos_Usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_projeto INT NOT NULL,
+    id_usuario INT NOT NULL,
+
+    CONSTRAINT fk_usuarios
+        FOREIGN KEY (id_usuario)
+        REFERENCES Usuarios(id_usuario),
+
+    CONSTRAINT fk_projetos
+        FOREIGN KEY (id_projeto)
+        REFERENCES Projetos(id_projeto),
+
+    CONSTRAINT uk_projeto_usuario
+        UNIQUE (id_projeto, id_usuario)
+);
+
+
+-- ==========================================
+-- 6. TABELA: RESERVAS
+-- ==========================================
+
+CREATE TABLE IF NOT EXISTS Reservas (
+    id_reserva INT AUTO_INCREMENT PRIMARY KEY,
+    data_reserva DATETIME NOT NULL,
+    horas_reservadas INT NOT NULL,
+    preco_total DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    id_usuario INT NOT NULL,
+    id_bancada INT NOT NULL,
+    id_projeto INT NULL,
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_reservas_usuarios
+        FOREIGN KEY (id_usuario)
+        REFERENCES Usuarios(id_usuario),
+
+    CONSTRAINT fk_reservas_bancadas
+        FOREIGN KEY (id_bancada)
+        REFERENCES Bancadas(id_bancada),
+
+    CONSTRAINT fk_reservas_projetos
+        FOREIGN KEY (id_projeto)
+        REFERENCES Projetos(id_projeto)
+);
+
+
+-- ==========================================
+-- 7. VIEW: FERRAMENTAS E BANCADAS
+-- ==========================================
+
+CREATE OR REPLACE VIEW vw_ferramentas_bancadas AS
+SELECT f.id_ferramenta, f.nome_ferramenta, f.area, f.estoque,
+       b.id_bancada, b.nome_bancada
+FROM Ferramentas f INNER JOIN Bancadas b ON f.id_bancada = b.id_bancada;
+
+
+-- ==========================================
+-- FIM DO SCHEMA
 -- ==========================================
