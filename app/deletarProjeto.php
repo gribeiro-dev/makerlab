@@ -45,34 +45,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MakerLab - Deletar Projeto</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="./css/criarProjeto.css">
 </head>
 <body>
     <?php require_once __DIR__ . '/nav.php'; ?>
 
-    <main class="conteudo pagina-formulario">
+    <main class="pagina-criar">
 
-        <h1 class="titulo-formulario">Deletar Projeto</h1>
+        <h1 class="titulo-criar">Deletar Projeto</h1>
 
-        <form class="formulario" action="" method="POST">
-            <input type="hidden" name="id" value="<?= $idProjeto ?>">
+        <form class="caixa-criar" action="" method="POST">
+            <input type="hidden" name="id" value="<?= htmlspecialchars((string) $idProjeto, ENT_QUOTES, 'UTF-8') ?>">
 
-            <div class="coluna">
-                <label class="rotulo">Nome do projeto:</label>
-                <input class="campo" value="<?= $projetoAtual['nome_projeto'] ?>" readonly>
+            <div class="coluna-esquerda">
+                <div class="linha-titulo">
+                    <label class="rotulo-criar">Nome do projeto:</label>
+                    <input class="campo-criar" value="<?= htmlspecialchars($projetoAtual['nome_projeto'], ENT_QUOTES, 'UTF-8') ?>" readonly>
+                </div>
 
-                <label class="rotulo">Link da imagem:</label>
-                <input class="campo campo-imagem" value="<?= $projetoAtual['imagem_projeto'] ?>" readonly>
+                <label class="rotulo-criar">Descrição do projeto:</label>
+                <textarea class="campo-criar campo-descricao-criar" readonly><?= htmlspecialchars($projetoAtual['descricao_projeto'], ENT_QUOTES, 'UTF-8') ?></textarea>
             </div>
 
-            <div class="coluna">
-                <label class="rotulo">Descrição:</label>
-                <textarea class="campo campo-descricao" readonly><?= $projetoAtual['descricao_projeto'] ?></textarea>
-
-                <button class="botao-registrar botao-deletar" type="submit">Deletar Projeto</button>
+            <div class="coluna-direita">
+                <label class="rotulo-criar">Link da imagem:</label>
+                <input class="campo-criar campo-imagem-criar" value="<?= htmlspecialchars($projetoAtual['imagem_projeto'], ENT_QUOTES, 'UTF-8') ?>" readonly>
             </div>
 
+            <button class="botao-registrar botao-deletar" type="submit">Deletar Projeto</button>
         </form>
-    </main>  
+
+    </main>
+
+    <?php require_once __DIR__ . '/footer.php'; ?>
 </body>
 </html>

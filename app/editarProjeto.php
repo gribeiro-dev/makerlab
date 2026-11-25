@@ -92,49 +92,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MakerLab - Editar Projeto</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="./css/criarProjeto.css">
 </head>
 <body>
     <?php require_once __DIR__ . '/nav.php'; ?>
-    <br><br><br>
 
-    <main class="conteudo pagina-formulario" style="margin-left: auto; margin-right: auto;">
+    <main class="pagina-criar">
 
-        <h1 class="titulo-formulario">Editar Projeto</h1>
+        <h1 class="titulo-criar">Editar Projeto</h1>
 
         <?php if (!empty($erros)): ?>
-            <div class="erros" style="background: #ffdddd; color: #900; padding: 12px; border-radius: 6px; margin-bottom: 16px;">
+            <div class="erro-criar">
                 <p>Corrija os campos abaixo:</p>
-                <ul>
-                    <?php foreach ($erros as $mensagem): ?>
-                        <li><?= $mensagem ?></li>
-                    <?php endforeach; ?>
-                </ul>
+                <?php foreach ($erros as $mensagem): ?>
+                    <p><?= htmlspecialchars($mensagem, ENT_QUOTES, 'UTF-8') ?></p>
+                <?php endforeach; ?>
             </div>
         <?php endif; ?>
 
         <?php foreach ($projetoSelecionado as $projeto): ?>
 
-            <form class="formulario" action="editarProjeto.php?id=<?= urlencode($idProjeto) ?>" method="POST">
+            <form class="caixa-criar" action="editarProjeto.php?id=<?= urlencode($idProjeto) ?>" method="POST">
 
-                <div class="coluna">
-                    <label class="rotulo" for="nomeProjeto">Nome do projeto:</label>
-                    <input class="campo" type="text" name="nomeProjeto" id="nomeProjeto" value="<?= $projeto['nome_projeto'] ?>" required>
+                <div class="coluna-esquerda">
+                    <div class="linha-titulo">
+                        <label class="rotulo-criar" for="nomeProjeto">Nome do projeto:</label>
+                        <input class="campo-criar" type="text" name="nomeProjeto" id="nomeProjeto" value="<?= htmlspecialchars($projeto['nome_projeto'], ENT_QUOTES, 'UTF-8') ?>" required>
+                    </div>
 
-                    <label class="rotulo" for="imagem">Cole o link da imagem:</label>
-                    <input class="campo campo-imagem" type="text" name="imagem" id="imagem" value="<?= $projeto['imagem_projeto'] ?>">
+                    <label class="rotulo-criar" for="descricao">Escreva uma descrição para o projeto:</label>
+                    <textarea class="campo-criar campo-descricao-criar" name="descricao" id="descricao" required><?= htmlspecialchars($projeto['descricao_projeto'], ENT_QUOTES, 'UTF-8') ?></textarea>
                 </div>
 
-                <div class="coluna">
-                    <label class="rotulo" for="descricao">Escreva uma descrição do projeto:</label>
-                    <textarea class="campo campo-descricao" name="descricao" id="descricao" required><?= $projeto['descricao_projeto'] ?></textarea>
-
-                    <button class="botao-registrar" type="submit">Salvar alterações</button>
+                <div class="coluna-direita">
+                    <label class="rotulo-criar" for="imagem">Cole o link da imagem:</label>
+                    <input class="campo-criar campo-imagem-criar" type="text" name="imagem" id="imagem" value="<?= htmlspecialchars($projeto['imagem_projeto'], ENT_QUOTES, 'UTF-8') ?>">
                 </div>
 
+                <button class="botao-registrar" type="submit">Salvar alterações</button>
             </form>
 
         <?php endforeach; ?>
     </main>
+
+    <?php require_once __DIR__ . '/footer.php'; ?>
 </body>
 </html>
