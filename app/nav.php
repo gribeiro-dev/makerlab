@@ -50,6 +50,8 @@ if (isset($_SESSION['user'])) {
               <li><a href="./reservas.php?bancada=Corte">Bancada de Corte a Laser</a></li>
               <li><a href="./reservas.php?bancada=Robotica">Bancada de Robótica</a></li>
               <li><a href="./reservas.php?bancada=Eletronica">Bancada de eletrônica</a></li>
+              <li><a href="./reservas.php?bancada=Marcenaria">Bancada de Marcenaria</a></li>
+              <li><a href="./reservas.php?bancada=Quimica">Bancada de Química</a></li>
             </ul>
           </li>
 

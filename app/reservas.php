@@ -17,8 +17,17 @@ if($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['bancada'])){
     if($_GET['bancada'] == 'Eletronica'){
         $bancadasDisponiveis = readAll(database(), 'Bancadas', 'area_bancada= ?',['Eletrônica']);
     }
+    if($_GET['bancada'] == 'Marcenaria'){
+        $bancadasDisponiveis = readAll(database(), 'Bancadas', 'area_bancada= ?',['Marcenaria']);
+    }
+    if($_GET['bancada'] == 'Quimica'){
+        $bancadasDisponiveis = readAll(database(), 'Bancadas', 'area_bancada= ?',['Química']);
+    }
 }
 ?>
+
+ <li><a href="./reservas.php?bancada=Marcenaria">Bancada de Marcenaria</a></li>
+              <li><a href="./reservas.php?bancada=Quimica">Bancada de Química</a></li>
 
 <!DOCTYPE html>
 <html lang="en">
