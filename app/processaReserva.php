@@ -16,7 +16,7 @@ if (isset($userLogado)) {
     $bancada = read(database(), 'Bancadas', 'id_bancada = ?', [$_GET['id']]);
     $idUsuario = $_SESSION['id'];
 
-    $projetos = readAll(database(), "Projetos", "id_criador = ?", [$_SESSION['id']]);
+    $projetos = readAll(database(), "Projetos", "id_criador = ? AND nome_projeto <> ''", [$_SESSION['id']]);
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $horas = filter_var($_POST['valorHora'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 12]]);
